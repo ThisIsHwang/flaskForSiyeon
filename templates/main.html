@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        #wrap {
+            min-height: 35vh;
+            position: relative;
+            width: 100%;
+        }
+
+        footer {
+            width: 100%;
+            height: 110px;
+            /* 내용물에 따라 알맞는 값 설정 */
+            bottom: 0px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="display: flex; border-bottom: solid 2px black;">
+        <h1 style="text-align:center; margin: 10px 10px 10px 30px;
+    border: 20px; padding-top: 15px;">
+            NMT
+        </h1>
+        <ul class="nav" style="margin : 32px 0px 0px 70px">
+            <li class="nav-item" style="border-bottom: solid 3px blue;">
+                <a class="nav-link active" aria-current="page" href="#">문제 풀이</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">실전 테스트</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">마이페이지</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" style="margin-left: auto; margin-right: auto;">
+        <!-- 문제 메뉴 블럭 -->
+        <div style="margin : 30px; margin-left: 1%;">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">고려대학교 22/인문</a>
+                </li>
+                <li class="nav-item" style="padding-left: 10px;">
+                    <a class="nav-link" href="#">제출</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">푼 사람</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">채점 현황</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 문제 제목 -->
+        <div style="margin : 20px; display:flex; margin-bottom: 5px; margin-left: 1%;">
+            <h2>
+                고려대학교 22/인문
+            </h2>
+        </div>
+        <div style="height: 3px; margin : 5px 15px 5px 1%; background-color: gray;">
+        </div>
+
+        <!-- 문제 개요 (권장 분량, 제출 ,맞힌사람)-->
+        <table class="table" id="problem-info" style="margin-right: 1%; margin-left: 1%;
+        width: 98%;">
+            <thead>
+                <tr>
+                    <th style="width:16%;">권장 분량</th>
+                    <th style="width:17%;">제출</th>
+                    <th style="width:17%;">맞힌 사람</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 초 </td>
+                    <td>256 MB</td>
+                    <td>17437</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="content" style="position: relative;">
+            <!-- 논제 블럭-->
+            <div class="content" style="margin: 20px; margin-top: 70px;margin-left: 1%;">
+                <h4>
+                    논제
+                </h4>
+                <div style="height: 3px; width: 70px;margin : 5px 0px 5px 0px; background-color: #0076C0;">
+                </div>
+            </div>
+            <div style="margin-left:1%;">
+                <div style="width: 703px; background-color: #d9d9d9;">
+                    ㉡을 ㉣의 관점에서 비판하고, ㉢의 근거를 (다)를 바탕으로 서술한 후, ㉤의 차원에서 ㉠을 평가하시오. (700~800자)
+                </div>
+            </div>
+
+            <!-- 문제 블럭-->
+            <div class="wing" style="margin: 20px; margin-top: 70px;margin-left: 1%;">
+                <h4>
+                    문제
+                </h4>
+                <div style="height: 3px; width: 70px;margin : 5px 0px 5px 0px; background-color: #0076C0;">
+                </div>
+            </div>
+            <div style="margin-left : 1%;text-align: center;">
+                <div style="width: 703px; height: 703px;  background-color: #d9d9d9;">
+                </div>
+            </div>
+            <!-- 답안지 블럭 -->
+            <div id="ansBlock" class="wing2" style="border-radius: 4px; border: 3px solid; position : absolute;
+            right: 50px;
+            top: 8px;
+            height: 500px;
+            width: 450px;
+            background-color: rgba(250, 250, 250, 1);
+            text-align: left;
+            ">
+                <h3 style="margin: 8px; border-bottom: solid 2px #0076C0;">
+                    답안지 제출
+                </h3>
+                <div>
+
+                    <form action="/submit" method="post">
+                        <div style="width: 90%; height: 400px; background-color: #d9d9d9;
+                        margin:auto;">
+                            <textarea id="essayContent" id="input" name="essayContent" style="width: 100%;height: 100%; border: none; resize: none;"></textarea>
+                        </div>
+                        <div>
+                            <input id="submit-btn" type="submit" value="제출" style="position: absolute; background-color: #0076C0; color: white;
+                        right: 20px; bottom: 10px; text-align: center; width: 20%; border-radius: 3px;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer 작성 -->
+    <div id='wrap' style="background-color: #e9e9e9; margin-top: 20%;">
+        <section>
+            <!-- 대충 뭐 요소들이 가득차있음 -->
+        </section>
+        <footer>
+            <nav>
+                <a href='https://github.com/johan1103' target='_blank'>Github</a>
+            </nav>
+            <p>
+                <span>저자 : 김태형</span><br />
+                <span>이메일 : johan1103@naver.com</span><br />
+                <span>johan1103 2022. johan1103. All Rights Reserved.</span>
+            </p>
+        </footer>
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+
+    const content = document.querySelector('.content');
+    const wing = document.querySelector('.wing');
+    const $wing2 = document.getElementsByClassName('wing2');
+    const $submit_btn = document.getElementById('submit-btn');
+    //const essayContent = document.getElementById('text-content').value;
+
+    
+    // 컨텐츠 영역부터 브라우저 최상단까지의 길이 구하기
+    const contentTop = content.getBoundingClientRect().top + window.scrollY;
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY >= contentTop) {
+            wing.classList.add('fixed');
+            $wing2[0].style.position = 'fixed';
+            $wing2[0].style.right = '115px';
+            $wing2[0].style.top = '8px';
+            if (window.scrollY > 1023) {
+                wing.classList.remove('fixed');
+                $wing2[0].style.position = 'absolute';
+                $wing2[0].style.right = '43px';
+                $wing2[0].style.top = '634px';
+            }
+        } else {
+            wing.classList.remove('fixed');
+            $wing2[0].style.position = 'absolute';
+            $wing2[0].style.right = '43px';
+            $wing2[0].style.top = '8px';
+        }
+    });
+    {#$submit_btn.addEventListener("click", function () {#}
+    {#    essayContent = document.getElementById('text-content').value;#}
+    {#    $.ajax({#}
+    {#        method: "POST",#}
+    {#        url: "https://127.0.0.1:5500/submit",#}
+    {#        dataType:'json',#}
+    {#        data: { 'essayContent' : essayContent }#}
+    {#    })#}
+    {#    window.location.href = 'gradeSheet.html';#}
+    {# });#}
+</script>
+
+
+</html>

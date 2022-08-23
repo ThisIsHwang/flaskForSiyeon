@@ -1,0 +1,10 @@
+gcc
+g++
+gfortran
+libblas-dev
+liblapack-dev
+libatlas-base-dev
+libxml2-dev
+libxslt1-dev
+aspell
+aspell-en
