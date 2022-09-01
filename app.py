@@ -36,29 +36,11 @@ def submit():
 			}
 		}
 		#scores = jsonify(scores)
-		return render_template("gradeSheet.html", scores=scores)
-	#return jsonify()
-	# if (request.method == 'POST'):
-	# 	value = request.form["essayContent"]
-	# 	value = json.loads(value.decode('utf-8'))
-	# 	#model = joblib.load('model.pkl')
-	# 	value = util_functions.sub_chars(value["essayContent"])
-	# 	#score = grade(model, value)
-	# 	print(value)
-	# 	result = {
-	# 		"message": "Success",
-	# 		"response": {
-	# 			"totalScore": 3,
-	# 			"logicScore": 3,
-	# 			"expressionScore": 3,
-	# 			"vocabularyScore": 3,
-	# 		}
-	# 	}
-	# 	return jsonify(result)
+		return render_template("gradeSheet.html", scores=json.dumps(scores), value=cleanedText)
 
 
 
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8000)

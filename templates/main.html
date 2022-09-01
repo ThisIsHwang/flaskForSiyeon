@@ -11,25 +11,75 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
     <style>
+
         #wrap {
             min-height: 35vh;
             position: relative;
             width: 100%;
         }
-
-        footer {
-            width: 100%;
-            height: 110px;
-            /* 내용물에 따라 알맞는 값 설정 */
-            bottom: 0px;
-            position: absolute;
+        #elementForWrapping{
+            position: fixed;
+            width: 200vh;
+            height: 200vh;
+            z-index: 2;
+            background-color: #d9d9d9;
         }
+        #elementForLoading{
+            position: fixed;
+            left: 47%;
+            {#align-content: center;#}
+            text-align: center;
+
+          top: 70%;
+          z-index: 2;
+          {#width: 200px;#}
+          height: 120px;
+          margin: -76px 0 0 -76px;
+            {#background-color: #d9d9d9;#}
+        }
+        #loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
     </style>
 </head>
 
 <body>
 
+<div id="elementForWrapping" hidden>
+    <div id="loader" >
+    </div>
+    <h1 id="elementForLoading">채점 중 입니다...</h1>
+</div>
+
+
+</div>
     <div style="display: flex; border-bottom: solid 2px black;">
         <h1 style="text-align:center; margin: 10px 10px 10px 30px;
     border: 20px; padding-top: 15px;">
@@ -45,9 +95,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">마이페이지</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>
+
         </ul>
     </div>
     <div class="container" style="margin-left: auto; margin-right: auto;">
@@ -55,7 +103,7 @@
         <div style="margin : 30px; margin-left: 1%;">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">고려대학교 22/인문</a>
+                    <a class="nav-link active" aria-current="page" href="#">서강대학교 20/인문</a>
                 </li>
                 <li class="nav-item" style="padding-left: 10px;">
                     <a class="nav-link" href="#">제출</a>
@@ -71,7 +119,7 @@
         <!-- 문제 제목 -->
         <div style="margin : 20px; display:flex; margin-bottom: 5px; margin-left: 1%;">
             <h2>
-                고려대학교 22/인문
+                서강대학교 20/인문
             </h2>
         </div>
         <div style="height: 3px; margin : 5px 15px 5px 1%; background-color: gray;">
@@ -83,15 +131,15 @@
             <thead>
                 <tr>
                     <th style="width:16%;">권장 분량</th>
-                    <th style="width:17%;">제출</th>
-                    <th style="width:17%;">맞힌 사람</th>
+                    <th style="width:17%;">총 제출 횟수</th>
+                    <th style="width:17%;">문제를 푼 사람</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1 초 </td>
-                    <td>256 MB</td>
-                    <td>17437</td>
+                    <td>300자 </td>
+                    <td>1212회</td>
+                    <td>134명</td>
                 </tr>
             </tbody>
         </table>
@@ -106,7 +154,7 @@
                 </div>
             </div>
             <div style="margin-left:1%;">
-                <div style="width: 703px; background-color: #d9d9d9;">
+                <div style="width: 703px; padding: 10px 30px 10px 30px; background-color: #d9d9d9;">
                     ㉡을 ㉣의 관점에서 비판하고, ㉢의 근거를 (다)를 바탕으로 서술한 후, ㉤의 차원에서 ㉠을 평가하시오. (700~800자)
                 </div>
             </div>
@@ -114,13 +162,42 @@
             <!-- 문제 블럭-->
             <div class="wing" style="margin: 20px; margin-top: 70px;margin-left: 1%;">
                 <h4>
-                    문제
+                    제시문
                 </h4>
                 <div style="height: 3px; width: 70px;margin : 5px 0px 5px 0px; background-color: #0076C0;">
                 </div>
             </div>
-            <div style="margin-left : 1%;text-align: center;">
-                <div style="width: 703px; height: 703px;  background-color: #d9d9d9;">
+            <div style="margin-left : 1%;text-align: right top;">
+                <div style="width: 703px; padding: 10px 30px 10px 30px; background-color: #d9d9d9;">
+                    <br><strong>[가]</strong> 청소년들이 차별과 혐오를 유희처럼 또래문화에서 즐기는 일은 과거에도 있었다. 하지만 스
+마트폰의 급격한 보급, 자정과 규제 없는 개인 인터넷 방송의 증가는 우리가 알지 못했던 상자를
+열었다. 인터넷 커뮤니티에서 시작된 혐오문화가 10대의 교실을 잠식한 것이다. (…) 모든 아이들
+이 혐오를 즐기는 건 아니다. 불편함과 거부감을 호소하는 학생들도 있다. “잘못된 건 다들 알거
+든요. 근데 학교는 작은 사회잖아요. 반기를 들면 ‘쟤 이상해’ 이런 취급을 당해요.”, “쿨하고 싶어
+서 대응을 잘 못해요. 애들이 친 농담을 웃어넘기고 인정하는 애들이 인기가 많으니까요. 맞장구
+치고 같이 키득거리거나 아니면 침묵하거나, 그렇게 되는 거죠.” 혐오 표현이 쿨한 것으로 여겨지
+면서, 불편함을 느끼고 상처받는 아이들의 존재는 지워진다.<br>
+<br><strong>[나]</strong> 사회는 구성원이 사회 규범을 지키도록 기대하고 법과 같은 규범을 통해 이를 강제하기도
+한다. 그러나 때로 사회 구성원이 이러한 사회적 규범이나 기대에 벗어난 사고와 행동을 하기도
+하는데, 이것을 일탈 행동이라고 한다. 일탈 행동은 사회적으로 바람직하지 못한 행동으로 그 사
+회의 통합과 존속을 저해하기도 하지만 때로 그 사회의 문제를 표출함으로써 사회 변화의 계기
+가 될 수도 있다. (…) 뒤르켐에 따르면 개인은 한 사회의 규범을 행동의 지침으로 여기는데, 사
+회 규범이 약화되거나 주도적 규범이 없는 상태가 되면 일탈 행동을 하게 된다. (…) 차별 교제
+이론은 일탈 행동을 하는 집단이나 사람들과의 접촉을 통해 일탈 행동이 학습된다는 입장이다. 즉, 일탈 행동을 보이는 사람들과 접촉하는 과정에서 그들과 동화되어 일탈 행동을 하게 된다는
+것이다.<br>
+                                              <br><strong>[다]</strong> 심리 실험이 진행되었다. 참가자는 한 명을 제외하면 모두 가짜였다. 실험자가 직선 하나가
+그려진 카드를 보여준 후, 길이가 다른 직선 세 개가 그려진 다른 카드를 참가자들에게 보여주었
+다. 두 번째 카드의 직선 중 하나는 처음에 제시한 카드의 직선과 길이가 같았는데, 그 직선을
+고르는 것이 참가자들에게 주어진 과제였다. 참가자는 한 사람씩 큰 소리로 자신의 선택을 말했
+다. 진짜 참가자는 끝자리에 앉았기 때문에 앞사람들의 대답을 알 수 있었다. 가짜 참가자들은 일
+부러 오답을 선택했다. 당황하는 기색이 역력했던 진짜 참가자의 선택은 두 가지였다. 자신의 선
+택을 유지하면서 혼자 다른 대답을 하거나, 다른 참가자들과 같은 대답을 하는 것이었다. (…) 이
+런 실험을 수십 번 진행했는데, 다른 이들이 오답을 말할 때 진짜 참가자가 자신의 의견을 관철
+하는 경우는 37%였다. 그 외는 매번 다수의 의견을 따랐다. 실험 종료 후 진짜 참가자에게 실험에 대해 사실대로 설명하자, 안도의 한숨을 내쉬며 이렇게
+말했다. “그들이나 저, 둘 중 한쪽은 비정상이었어요. 그들처럼 제 판단력도 형편없는지 궁금했지
+만 그들이 맞지 않을까 싶은 생각도 들어서 결정을 못 내렸죠.”, “그들이 맞아서가 아니라 그저
+묻어가려고 한 거예요. 반대 의견을 펴려면 엄청난 배짱이 필요한 것 같아요.”<br>
+<br>- 출처: 2020학년도 서강대학교 논술 기출
                 </div>
             </div>
             <!-- 답안지 블럭 -->
@@ -152,21 +229,90 @@
         </div>
     </div>
     <!-- footer 작성 -->
-    <div id='wrap' style="background-color: #e9e9e9; margin-top: 20%;">
-        <section>
-            <!-- 대충 뭐 요소들이 가득차있음 -->
-        </section>
-        <footer>
-            <nav>
-                <a href='https://github.com/johan1103' target='_blank'>Github</a>
-            </nav>
-            <p>
-                <span>저자 : 김태형</span><br />
-                <span>이메일 : johan1103@naver.com</span><br />
-                <span>johan1103 2022. johan1103. All Rights Reserved.</span>
-            </p>
-        </footer>
+
+<!-- Footer -->
+<footer style=margin-top:200px; class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+
+    <!-- Left -->
+
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>러닝머신(Learning Machine)
+          </h6>
+          <p>
+            교육의 격차를 없애고 누구나 받을 수 있는 교육 환경을 만듭니다.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> 서울특별시 강남구 테헤란로 311 아남타워빌딩 7층 (우편번호 : 06151)
+              <br>TEL 02-6933-0702~5
+          </p>
+
+
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://www.swmaestro.org/sw/main/main.do">러닝머신(Learning Machine)</a>
+  </div>
+  <!-- Copyright -->
+</footer >
+<!-- Footer -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -179,12 +325,15 @@
     const wing = document.querySelector('.wing');
     const $wing2 = document.getElementsByClassName('wing2');
     const $submit_btn = document.getElementById('submit-btn');
+    const $load = document.getElementById('elementForWrapping');
     //const essayContent = document.getElementById('text-content').value;
 
     
     // 컨텐츠 영역부터 브라우저 최상단까지의 길이 구하기
     const contentTop = content.getBoundingClientRect().top + window.scrollY;
-
+    $submit_btn.addEventListener("click", function (){
+        $load.hidden= false;
+    });
     window.addEventListener('scroll', function () {
         if (window.scrollY >= contentTop) {
             wing.classList.add('fixed');
@@ -204,16 +353,7 @@
             $wing2[0].style.top = '8px';
         }
     });
-    {#$submit_btn.addEventListener("click", function () {#}
-    {#    essayContent = document.getElementById('text-content').value;#}
-    {#    $.ajax({#}
-    {#        method: "POST",#}
-    {#        url: "https://127.0.0.1:5500/submit",#}
-    {#        dataType:'json',#}
-    {#        data: { 'essayContent' : essayContent }#}
-    {#    })#}
-    {#    window.location.href = 'gradeSheet.html';#}
-    {# });#}
+
 </script>
 
 

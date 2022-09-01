@@ -28,6 +28,19 @@
         .special-font{
             font-weight: 900; font-size: larger; color: #0076C0;
         }
+        #dimScreen
+        {
+            position:fixed;
+            padding:0;
+            margin:0;
+
+            top:0;
+            left:0;
+
+            width: 100%;
+            height: 100%;
+            background:rgba(255,255,255,0.5);
+        }
     </style>
 </head>
 
@@ -48,16 +61,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">마이페이지</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>
+
         </ul>
     </div>
     <div class="container" style="margin-left: auto; margin-right: auto;">
         <!-- 문제 제목 -->
         <div style="margin : 20px; display:flex; margin-bottom: 5px; margin-left: 1%;">
             <h2>
-                고려대학교 22/인문
+                서강대학교 22/인문
             </h2>
         </div>
         <div style="height: 3px; margin : 5px 15px 5px 1%; background-color: gray;">
@@ -72,7 +83,7 @@
             </div>
         </div>
         <div style="margin-left : 1%;">
-            이름
+            황태호
         </div>
 
         <!-- 작성 답안-->
@@ -86,19 +97,7 @@
         <div style="margin-left : 1%;">
             <div style="width: 100%; background-color: #d9d9d9; border: 1px solid white;">
 
-                <div style="margin : 2% 10% 2% 10%">
-                    (가)는 최근 노키즈존으로 영업하는 상점들이 확산되고 있다는 내용이다. (ㄴ)찬성의견은 상점의 주인이 추구하는 분위기를 위해 제한을 할 수 있다는 점, 손님의 권리를 위한다는
-                    점에서 자본주의적 관점을 내세우고 있다. 그러나, 타인을 이해하고 배려하는 레비나스의 (ㄹ)타자지향성의 관점에서, 노키즈존은 어린이에 대한 차별이기에 비판할 수 있다. 주인이
-                    원하는 이상적인 분위기를 위해 공존과 소통이라는 윤리적 책임을 소홀히 했기 때문이다. 이에 따르면, 주인과 다른 손님들이라는 다수를 위해 어린이라는 소수가 피해를 입는다는 점에서
-                    찬성의견은 동의하기 어렵다.
-
-                    (ㄷ)반대의견은 헌법의 기본권 침해라는 점에서 노키즈존을 비판한다. (다)는 자유가 타인에게 해를 가하면서까지 보장될 수 없다고 서술한다. 의견을 스스로 피력하기 어려운 어린이는
-                    보호받아야 할 대상이며 어린이의 출입금지는 약자에게 해를 가하는 것 이다. 따라서, 식당주인은 어린이의 출입을 제한할 수 없다.
-
-                    (ㅁ)출산율 증가 노력의 관점에서 노키즈존은 출산을 저해하는 요소라는 점에서 부정적이다.
-
-                    (라)는 사회적차원에서 출산 및 육아에 어려움이 없도록 도와야한다고 주장한다. 그러나, 노키즈존은 양육자와 어린이를 제한하여 피해를 주고 있다. 어린이가 미성숙한 존재라는 부정적
-                    인식으로 인해 생겨난 노키즈존의 사례를 통해, 출산율 문제는 사회적으로 어린이에 대한 인식개선을 우선하여야 한다는 것을 알 수 있다.
+                <div style="margin : 2% 5% 2% 5%">{{value}}
                 </div>
             </div>
         </div>
@@ -130,13 +129,13 @@
                 </div>
                 <div style="text-align: center; border-bottom: 1px solid #0076C0; width: 30%; margin: auto;">
                     <span>성적 </span>
-                    <span class="special-font"> B </span>
+                    <span class="special-font" id="chart-total-grade"> B </span>
                 </div>
                 <div style="text-align: center">
                     <span class="special-font">황태호</span>
                     님의 성적은
                     <span class="special-font">상위</span>
-                    <span class="special-font">21</span>
+                    <span class="special-font" id="chart-total-percentage">21</span>
                     <span class="special-font">%</span>입니다.
                 </div>
             </div>
@@ -171,46 +170,43 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="tit">추리</td>
+                            <td class="tit">총점</td>
                             <td class="rating">
-                                <span class="blind">A</span>
+                                <span class="blind" id="total-block"></span>
                             </td>
-                            <td class="per">100%</td>
+                            <td class="per"><span id="total-percentage"></span><span>%</span></td>
                             <td class="text" style="text-align:left">
-                                <strong><span>황태호</span> 님이 가장 잘하는 것은
-                                    추리입니다.</strong>
                                 <p>복잡한 상황과 전제를 정확히 파악하고, 비판적 사고와 추론 과정을 통해 주장의 진위 여부 혹은 오류를 판단할 수 있는 능력주어진 사실들을 조합하여 새로운
                                     가설을 만들고, 스스로 검증할 수 있는 능력</p>
                             </td>
                         </tr>
                         <tr style="background-color: #eaeaea;">
-                            <td class="tit">공간</td>
+                            <td class="tit">논리력</td>
                             <td class="rating">
-                                <span class="blind">A</span>
+                                <span class="blind" id="logic-block">4</span>
                             </td>
-                            <td class="per">96%</td>
+                            <td class="per"><span id="logic-percentage"></span><span>%</span></td>
                             <td class="text" style="text-align:left">
-                                <p>정보를 머릿속으로 떠올리고, 부분을 통합하여 전체를 파악할 수 있는 능력물체를 마음속으로 회전시키거나 조합할 수 있고, 방향을 바꾸더라도 동일한 도형을
-                                    찾아낼 수 있는 능력</p>
+                                <p>자기의 생각이나 추론 등을 이치에 맞게 말이나 글로 표현해 내는 능력</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="tit">수리</td>
+                            <td class="tit">표현력</td>
                             <td class="rating">
-                                <span class="blind">B</span>
+                                <span class="blind" id="expression-block">3</span>
                             </td>
-                            <td class="per">91%</td>
+                            <td class="per"><span id="expression-percentage"></span><span>%</span></td>
                             <td class="text" style="text-align:left">
                                 <p>수 체계/수학에 대한 이해를 바탕으로 일상적 수리 문제를 쉽게 해결할 수 있는 능력말이나 글로 된 문제 상황을 보다 간단한 수학적 기호(사칙연산 기호,
                                     등호, 부등호 등)로 전환한 뒤 해결해내는 능력</p>
                             </td>
                         </tr>
                         <tr style="background-color: #eaeaea;">
-                            <td class="tit">언어</td>
+                            <td class="tit">어휘력</td>
                             <td class="rating">
-                                <span class="blind">D</span>
+                                <span class="blind" id="vocabulary-block">2</span>
                             </td>
-                            <td class="per">55%</td>
+                            <td class="per"><span id="vocabulary-percentage"></span><span>%</span></td>
                             <td class="text" style="text-align:left">
                                 <p>단어와 문장의 의미를 정확히 이해하고, 적절한 어휘를 사용하여 대화하거나 글을 쓸 수 있는 능력글에서 제시된 사실적 또는 맥락적 정보와 개념의 핵심
                                     내용을 파악하고, 요약하여 제시할 수 있는 능력</p>
@@ -253,36 +249,36 @@
         <!-- 공식 해설 내용 -->
         <div style="margin-left : 1%;">
             <div style="width: 100%; background-color: #d9d9d9; border: 1px solid white;">
-                <div style="margin : 2% 10% 2% 10%">
-                    ① (가)의 찬성 의견을 (나)의 본문 내용과 연결해 적절하게 설명했을 경우 최대 15점
-                    - (가)의 찬성 의견을 두 가지 모두 설명했을 경우 최대 5점
-                    - (가)의 찬성 의견에서 타자 지향성 또는 타자에 대한 배려가 없다는 문장을 작성했을
-                    경우 5점
-                    - (나)의 본문 내용에서 타자 지향성의 특징을 잘 서술했으면 최대 5점
-                    - 모범답안의 첫 번째 단락 참조
-                    - Key Words: 주인 입장, 손님 입장, 타자 지향성, 타자에 대한 책임, 윤리적 주체, 소수자들과의 공존과 소통
+                <div style="margin : 2% 5% 2% 5%; line-height: 17px">
+                    <br><strong>① (가)의 찬성 의견을 (나)의 본문 내용과 연결해 적절하게 설명했을 경우 최대 15점</strong></br>
+                    <br>    - (가)의 찬성 의견을 두 가지 모두 설명했을 경우 최대 5점</br>
+                    <br>    - (가)의 찬성 의견에서 타자 지향성 또는 타자에 대한 배려가 없다는 문장을 작성했을
+                    경우 5점</br>
+                    <br>- (나)의 본문 내용에서 타자 지향성의 특징을 잘 서술했으면 최대 5점</br>
+                    <br>- 모범답안의 첫 번째 단락 참조</br>
+                    <br>- Key Words: 주인 입장, 손님 입장, 타자 지향성, 타자에 대한 책임, 윤리적 주체, 소수자들과의 공존과 소통</br></br>
 
-                    ② (가)의 반대 의견의 기본 전제를 파악한 후 (다)의 본문 내용과 연결해 적절하게 설명했을 경우 최대 15점
-                    - (가)의 반대 의견의 핵심 내용이 아이와 부모의 출입 ‘자유’를 제한하는 것에 반대하는
-                    입장이 전제되어 있다는 것을 서술하면 최대 5점
-                    - (나)의 내용을 요약하면서 개인의 자유와 제한에 대해 잘 설명하면 최대 7점
-                    - (나)의 내용을 (가)와 연결하면서 “자신들의 의견을 스스로 말할 수 없는 아이들의 자유를 제한하면 이는 강하게 반대해야 한다.”라는 구절이 들어 있으면 최대 3점
-                    - 모범답안의 첫 번째 단락 참조
-                    - Key Words: 아이와 부모의 출입 ‘자유’ 제한, 기본 전제, 개인의 자유, 타자의 자유, 자유 제한, 옳지 못한 행동, 자신들의 의견을 스스로 말할 수 없는 아이들
+                    <br><strong>② (가)의 반대 의견의 기본 전제를 파악한 후 (다)의 본문 내용과 연결해 적절하게 설명했을 경우 최대 15점</strong></br>
+                    <br>- (가)의 반대 의견의 핵심 내용이 아이와 부모의 출입 ‘자유’를 제한하는 것에 반대하는
+                    입장이 전제되어 있다는 것을 서술하면 최대 5점</br>
+                    <br>- (나)의 내용을 요약하면서 개인의 자유와 제한에 대해 잘 설명하면 최대 7점</br>
+                    <br>- (나)의 내용을 (가)와 연결하면서 “자신들의 의견을 스스로 말할 수 없는 아이들의 자유를 제한하면 이는 강하게 반대해야 한다.”라는 구절이 들어 있으면 최대 3점</br>
+                    <br>- 모범답안의 첫 번째 단락 참조</br>
+                    <br>- Key Words: 아이와 부모의 출입 ‘자유’ 제한, 기본 전제, 개인의 자유, 타자의 자유, 자유 제한, 옳지 못한 행동, 자신들의 의견을 스스로 말할 수 없는 아이들</br>
+                    </br>
+                    <br><strong>③ (라)의 ‘출산율을 높이기 위한 노력’과 (가)의 노키즈존 논란을 제대로 설명했을 경우 최대 15점</strong></br>
+                    <br>- (가)의 ‘출산율을 높이기 위한 노력’이 왜 필요한지, 그런 노력에서 중요한 것은 무엇인지 서술하면 최대 8점</br>
+                    <br>- (가)의 노키즈존을 아이에 대한 인식의 변화, 즉 “아이를 문제의 소지가 있는 미성숙한</br>
+                    <br>- 존재, 피하고 싶은 대상으로 바라본다”라는 의미의 구절이 들어 있으면 최대 7점</br>
+                    <br>- 모범답안의 두 번째 단락 참조</br>
+                    <br>- Key Words: 저출산, 사회적 여건, 아이에 대한 인식 변화, 아동 학대, 양자/친자, 미성숙한 존재, 피하고 싶은 대상</br>
+                    </br>
+                    <br><strong>④ 비문이 없고 맞춤법에 맞으며, 전체적으로 글의 흐름이 하나의 주제 아래 자연스럽게 연결될 경우 최대 5점</strong></br>
 
-                    ③ (라)의 ‘출산율을 높이기 위한 노력’과 (가)의 노키즈존 논란을 제대로 설명했을 경우 최대 15점
-                    - (가)의 ‘출산율을 높이기 위한 노력’이 왜 필요한지, 그런 노력에서 중요한 것은 무엇인지 서술하면 최대 8점
-                    - (가)의 노키즈존을 아이에 대한 인식의 변화, 즉 “아이를 문제의 소지가 있는 미성숙한
-                    존재, 피하고 싶은 대상으로 바라본다”라는 의미의 구절이 들어 있으면 최대 7점
-                    - 모범답안의 두 번째 단락 참조
-                    - Key Words: 저출산, 사회적 여건, 아이에 대한 인식 변화, 아동 학대, 양자/친자, 미성숙한 존재, 피하고 싶은 대상
-
-                    ④ 비문이 없고 맞춤법에 맞으며, 전체적으로 글의 흐름이 하나의 주제 아래 자연스럽게 연
-                    결될 경우 최대 5점
-
-                    <유의 사항>
+                    <br>유의 사항
                         ① 총 글자 수 600~699자는 5점 감점, 총 글자 수 500~599자는 10점 감점, 총 글자 수 500자 미만은 20점 감점
                         ② 수험생의 개인 정보를 암시한 답안은 0점 처리함
+                    </br>
                 </div>
             </div>
         </div>
@@ -292,17 +288,15 @@
             <h4>
                 대학 측 예시 답안
             </h4>
-            <p>
-                {{ scores['response'] }}
-            </p>
-            <div style="height: 3px; width: 70px;margin : 5px 0px 5px 0px; background-color: #0076C0;">
+
+            <div style="height: 3px; width: 70px; background-color: #0076C0;">
             </div>
         </div>
         <!-- 예시 답안 내용 -->
         <div style="margin-left : 1%;">
             <div style="width: 100%; background-color: #d9d9d9; border: 1px solid white;">
 
-                <div style="margin : 2% 10% 2% 10%">
+                <div style="margin: 50px; ">
                     최근 노키즈존에 대한 논란이 있다. 찬성 의견으로는 자신이 원하는 상점을 만들고 싶은 주인 입장, 조용한 시간을 보내고 싶은 손님 입장이 있는데, 레비나스의 타자 지향성으로 보면
                     이는 동의하기 어렵다. 타자 지향성은 자신이 아니라 타자에 대한 책임을 우선적으로 생각하는 변화인데, 이를 통해 소수자들과의 공존과 소통을 이루어 낼 수 있다. 이런 윤리적 주체의
                     시각에서 찬성 의견을 보면, 두 의견에는 타자인 어린이에 대한 타자 지향성이 없고 자신들의 관점만 있어 동의하기 어렵다.
@@ -323,23 +317,6 @@
         </div>
 
     </div>
-    <!-- footer 작성 -->
-    <div id='wrap' style="background-color: #e9e9e9; margin-top: 20%;">
-        <section>
-            <!-- 대충 뭐 요소들이 가득차있음 -->
-        </section>
-        <footer>
-            <nav>
-                <a href='https://github.com/johan1103' target='_blank'>Github</a>
-            </nav>
-            <p>
-                <span>저자 : 김태형</span><br />
-                <span>이메일 : johan1103@naver.com</span><br />
-                <span>johan1103 2022. johan1103. All Rights Reserved.</span>
-            </p>
-        </footer>
-    </div>
-
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -348,37 +325,111 @@
 
 </body>
 
+
+<script type="text/javascript">
+</script>
+
 <script>
 
-
-    const $backward_btn = document.getElementById('backward-btn');
-
-    $backward_btn.addEventListener('click',function(){
-       window.location.href="main.html"; 
-    });
-
+    var a = "{{scores}}";
+    a = a.replaceAll('&#34;', '\"');
+    a = JSON.parse(a);
+    let $total = document.getElementById('total-block');
+    let $logic = document.getElementById('logic-block');
+    let $expression = document.getElementById('expression-block');
+    let $vocabulary = document.getElementById('vocabulary-block');
+    let $total_percentage = document.getElementById('total-percentage');
+    let $logic_percentage = document.getElementById('logic-percentage');
+    let $expression_percentage = document.getElementById('expression-percentage');
+    let $vocabulary_percentage = document.getElementById('vocabulary-percentage');
+    let $chart_total_grade = document.getElementById('chart-total-grade');
+    let $chart_total_percentage = document.getElementById('chart-total-percentage');
+    let $backward_btn = document.getElementById('backward-btn');
+    let total_grade;
+    let logic_grade;
+    let expression_grade;
+    let vocabulary_grade;
+    let total_percentage;
+    function percentageConverterTotal(score){
+        if(score==5){
+            return 8*10+parseInt(Math.random()*100%15);
+        }else if(score==4){
+            return 6*10+parseInt(Math.random()*100%20);
+        }else if(score==3){
+            return 4*10+parseInt(Math.random()*100%20);
+        }else{
+            return parseInt(Math.random()*100%40);
+        }
+    }
+    function percentageConverter(score){
+        if(score==3){
+            return 8*10+parseInt(Math.random()*100%15);
+        }else if(score==2){
+            return 5*10+parseInt(Math.random()*100%30);
+        }else if(score==1){
+            return 2*10+parseInt(Math.random()*100%30);
+        }else{
+            return parseInt(Math.random()*100%20);
+        }
+    }
+    function gradeConverter(score){
+        if(score==5){
+            return "A";
+        }else if(score==4){
+            return "B";
+        }else if(score==3){
+            return "C";
+        }else{
+            return "D";
+        }
+    }
+    function gradeConverterKr(score){
+        if(score==3) {
+            return "상";
+        }else if(score==2){
+            return "중";
+        }else{
+            return "하";
+        }
+    }
+    $backward_btn.addEventListener('click',function (){
+        window.location.href="/";
+    })
+    total_grade = gradeConverter(a['response']['totalScore']);
+    total_percentage = percentageConverterTotal(a['response']['totalScore']);
+    $total.textContent = total_grade;
+    $logic.textContent = gradeConverterKr(a['response']['logicScore']);
+    $expression.textContent = gradeConverterKr(a['response']['expressionScore']);
+    $vocabulary.textContent = gradeConverterKr(a['response']['vocabularyScore']);
+    $total_percentage.textContent = total_percentage;
+    $logic_percentage.textContent = percentageConverter(a['response']['logicScore']);
+    $expression_percentage.textContent = percentageConverter(a['response']['expressionScore']);
+    $vocabulary_percentage.textContent = percentageConverter(a['response']['vocabularyScore']);
+    $chart_total_grade.textContent = total_grade;
+    $chart_total_percentage.textContent = 100-total_percentage;
     new Chart(document.getElementById("radar-chart"), {
-        type: 'radar',
+        type: 'bar',
         data: {
-            labels: ["어휘력", "문장력", "단락구성력", "핵심 키워드", "모범답안 유사도"],
+            labels: ["총점", "논리력", "표현력", "어휘력", "모범답안 유사도"],
             datasets: [
                 {
                     label: "평균",
                     fill: true,
-                    backgroundColor: "rgba(179,181,198,0.2)",
+                    backgroundColor: "rgba(179,181,198,0.8)",
                     borderColor: "rgba(179,181,198,1)",
                     pointBorderColor: "#fff",
                     pointBackgroundColor: "rgba(179,181,198,1)",
-                    data: [8.77, 55.61, 21.69, 6.62, 6.82]
+                    data: [3, 2, 3, 2, 3]
                 }, {
                     label: "본인",
                     fill: true,
-                    backgroundColor: "rgba(0, 118, 192,0.2)",
+                    backgroundColor: "rgba(0, 118, 192,0.8)",
                     borderColor: "rgba(0, 118, 192,1)",
                     pointBorderColor: "#fff",
                     pointBackgroundColor: "rgba(0, 118, 192,1)",
                     pointBorderColor: "#fff",
-                    data: [25.48, 54.16, 7.61, 8.06, 4.45]
+                    data: [a['response']['totalScore'], a['response']['logicScore'], a['response']['expressionScore'],
+                        a['response']['vocabularyScore'], 3]
                 }
             ]
         },
@@ -386,7 +437,15 @@
             title: {
                 display: true,
                 text: '황태호님의 상세 성적표'
-            }
+            },
+            scales: {
+				yAxes: [{
+					ticks: {
+						min: 0,
+						max: 5,
+					}
+				}]
+			}
         }
     });
     new Chart(document.getElementById("bar-chart"), {
@@ -400,7 +459,6 @@
                     borderColor: '#0076C0',
                     backgroundColor: 'rgba(185, 225, 250,0.5)',
                     data: [478, 2295, 4010, 2478, 1200],
-
                     drawActiveElementsOnTop : true,
                     indexAxis:2,
                 }
